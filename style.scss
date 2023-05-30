@@ -1,0 +1,780 @@
+// font-family: 'Poppins', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+* {
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+// Variables
+$blue: #29d9d5;
+$black: #111;
+$white: #f4f4f4;
+
+$light-color: #aaa;
+
+$bg-color: #222;
+$black-bg: rgba(17, 17, 17, .7);
+
+$border: .2rem solid $blue;
+
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap: 1.5rem;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 9rem;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $blue;
+    }
+}
+
+body {
+    background-color: $black;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 3rem 9%;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    span {
+        color: $blue;
+        font-size: 2rem;
+    }
+
+    h1 {
+        color: $white;
+        font-size: 4rem;
+        margin-top: .5rem;
+    }
+}
+
+.btn {
+    background-color: transparent;
+    border: $border;
+    border-radius: 5rem;
+    color: $blue;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+
+    &:hover {
+        background-color: $blue;
+        color: $black;
+    }
+}
+
+
+
+// Header
+.header {
+    background-color: $bg-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 1.5rem 9%;
+    z-index: 1000;
+
+    .navbar a {
+        font-size: 1.7rem;
+        color: $light-color;
+        display: inline-block;
+        margin: 0 1rem;
+
+        &:hover {
+            color: $blue;
+        }
+    }
+
+    .btn {
+        margin-top: 0;
+    }
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: $white;
+
+    i {
+        color: $blue;
+        padding-right: .5rem;
+    }
+}
+
+#menu-btn {
+    font-size: 2.5rem;
+    color: $white;
+    cursor: pointer;
+    display: none;
+}
+
+
+
+// Home Section
+.home {
+    background: linear-gradient($black-bg, $black-bg), url("../images/home-bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    margin-inline: auto;
+    margin-top: 9rem;
+    padding-bottom: 5rem;
+    width: 90%;
+
+    .content {
+        text-align: center;
+
+        span {
+            display: block;
+            font-size: 4vw;
+            font-weight: bolder;
+            color: transparent;
+            -webkit-text-stroke: .1rem $white;
+        }
+
+        h3 {
+            font-size: 6vw;
+            color: $white;
+        }
+
+        p {
+            color: $light-color;
+            font-size: 1.4rem;
+            line-height: 2;
+            max-width: 60rem;
+            margin: 1rem auto;
+        }
+    }
+}
+
+
+// Booking Form
+.book-form {
+    background-color: $bg-color;
+    border-radius: 1rem;
+    box-shadow: 0 .5rem 1rem rgba(17, 17, 17, .3);
+    margin-inline: auto;
+    margin-block: -5rem 1rem;
+    padding: 3rem 2rem;
+    width: 80%;
+
+    form {
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+
+        .inputBox {
+            flex: 1 1 25rem;
+
+            span {
+                color: $light-color;
+                font-size: 1.4rem;
+            }
+
+            input {
+                background: none;
+                border: $border;
+                border-radius: 5rem;
+                color: $light-color;
+                font-size: 1.6rem;
+                margin-top: 1rem;
+                padding: 1.2rem 1.4rem;
+                width: 100%;
+                text-transform: none;
+            }
+        }
+
+        .btn {
+            flex: 1 1 15rem;
+        }
+    }
+}
+
+
+// About
+.about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 5rem;
+
+    .video-container {
+        flex: 1 1 42rem;
+
+        video {
+            border-radius: 1rem;
+            width: 100%;
+        }
+
+        .controls {
+            text-align: center;
+            padding: 2rem 0;
+
+            span {
+                background-color: $white;
+                border-radius: 50%;
+                display: inline-block;
+                height: 2rem;
+                width: 2rem;
+                margin: .7rem;
+                
+                &:hover {
+                    background-color: $blue;
+                }
+            }
+        }
+    }
+
+    .content {
+        flex: 1 1 42rem;
+        margin-bottom: 5rem;
+    }
+
+    span {
+        color: $blue;
+        font-size: 2rem;
+    }
+
+    h3 {
+        color: $white;
+        font-size: 4rem;
+        margin-top: .5rem;
+    }
+
+    p {
+        color: $light-color;
+        font-size: 1.4rem;
+        line-height: 2;
+        padding: 1rem 0;
+    }
+}
+
+
+// Destination
+.destination .box-container {
+    @include grid(25rem);
+
+    .box {
+        background-color: $bg-color;
+        border-radius: 1rem;
+        overflow: hidden;
+
+        &:hover img {
+            transform: scale(1.1);
+        }
+
+        .image {
+            width: 100%;
+            height: 20rem;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .content {
+            text-align: center;
+            padding: 2rem;
+
+            h3 {
+                font-size: 2rem;
+                color: $white;
+            }
+
+            p {
+                color: $light-color;
+                font-size: 1.4rem;
+                line-height: 2;
+                padding: 1rem 0;
+            }
+
+            a {
+                color: $blue;
+                font-size: 1.7rem;
+
+                &:hover i {
+                    padding-left: 1rem;
+                }
+
+                i {
+                    padding-right: .5rem;
+                }
+            }
+        }
+    }
+}
+
+
+//Service
+.services .box-container {
+    @include grid(32rem);
+
+    .box {
+        background-color: $bg-color;
+        border: .2rem solid $black;
+        border-radius: 1rem;
+        padding: 3rem;
+        text-align: center;
+
+        &:hover {
+            border: $border;
+        }
+
+        i {
+            color: $blue;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            color: $white;
+            font-size: 2rem;
+        }
+
+        p {
+            color: $light-color;
+            font-size: 1.4rem;
+            line-height: 2;
+            padding: 1rem 0;
+        }
+    }
+}
+
+
+// Gallery
+.gallery .box-container {
+    columns: 3 27rem;
+    column-gap: 1.5rem;
+
+    .box {
+        break-inside: avoid;
+        margin-bottom: 1rem;
+
+        img {
+            border-radius: 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        span {
+            color: $light-color;
+            font-size: 1.4rem;
+        }
+
+        h3 {
+            color: $white;
+            font-size: 2rem;
+            margin-top: .5rem;
+        }
+    }
+}
+
+
+// Reviews
+.reviews {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .content {
+        flex: 1 1 42rem;
+
+        span {
+            color: $blue;
+            font-size: 2rem;
+        }
+
+        h3 {
+            color: $blue;
+            font-size: 3rem;
+        }
+
+        p {
+            color: $light-color;
+            font-size: 1.4rem;
+            padding: 1rem 0;
+            line-height: 2;
+        }
+    }
+
+    .box-container {
+        flex: 1 1 42rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+
+        .box {
+            border-radius: 1rem;
+            background-color: $bg-color;
+            border: 1.2rem solid $black;
+            flex: 1 1 20rem;
+            padding: 2rem;
+
+            &:hover {
+                border: $border;
+            }
+
+            p {
+                color: $light-color;
+                font-size: 1.4rem;
+                line-height: 2;
+                padding-bottom: 1rem
+            }
+
+            .user {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+    
+                img {
+                    border-radius: 50%;
+                    height: 5rem;
+                    width: 5rem;
+                }
+    
+                h3 {
+                    color: $white;
+                    font-size: 2rem;
+                }
+    
+                span {
+                    color: $light-color;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+
+// Blogs
+.blogs .box-container {
+    @include grid(32rem);
+
+    .box {
+        background-color: $bg-color;
+        border-radius: 1rem;
+        overflow: hidden;
+
+        &:hover img{
+            transform: scale(1.1);
+        }
+
+        .image {
+            height: 25rem;
+            overflow: hidden;
+            width: 100%;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        .content {
+            padding: 2rem;
+
+            .link {
+                color: $white;
+                font-size: 2rem;
+
+                &:hover {
+                    color: $blue;
+                }
+            }
+
+            p {
+                color: $light-color;
+                font-size: 1.4rem;
+                line-height: 2;
+                padding: 1rem 0;
+            }
+
+            .icon {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-top: 1rem;
+
+                a {
+                    color: $light-color;
+                    font-size: 1.4rem;
+
+                    &:hover {
+                        color: $blue;
+                    }
+
+                    i {
+                        color: $blue;
+                        padding-right: .5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// banner
+.banner {
+    background: linear-gradient($black-bg, $black-bg), url('../images/home-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 3rem 2rem;
+    text-align: center;
+
+    .content {
+
+        span {
+            color: $blue;
+            font-size: 2rem;
+        }
+
+        h3 {
+            color: $white;
+            font-size: 4rem;
+            margin-top: 1rem;
+        }
+
+        p {
+            color: $light-color;
+            font-size: 1.4rem;
+            line-height: 2;
+            max-width: 60rem;
+            margin: 1rem auto;
+        }
+    }
+}
+
+
+// footer
+.footer {
+
+    .box-container{
+        @include grid(25rem);
+
+        .box {
+            padding: 1rem 0;
+
+            .logo {
+                padding-bottom: 1rem;
+            }
+            
+            h3 {
+                color: $white;
+                font-size: 2.2rem;
+                padding: 1rem 0;
+            }
+
+            p {
+                color: $light-color;
+                font-size: 1.4rem;
+                line-height: 2;
+                padding: 1rem 0;
+
+                i {
+                    color: $blue;
+                    padding-right: .5rem;
+                }
+            }
+
+            .share {
+                padding-top: 1rem;
+
+                a {
+                    border: $border;
+                    border-radius: 50%;
+                    color: $blue;
+                    font-size: 1.7rem;
+                    height: 4.5rem;
+                    line-height: 4.5rem;
+                    width: 4.5rem;
+                    text-align: center;
+                    margin-right: .5rem;
+
+                    &:hover {
+                        background-color: $blue;
+                        color: $black;
+                    }
+                }
+            }
+
+            .links {
+                color: $light-color;
+                font-size: 1.4rem;
+                display: block;
+                padding: 1rem 0;
+
+                &:hover {
+                    color: $blue;
+
+                    i {
+                        padding-right: 2rem;
+                    }
+                }
+
+                i {
+                    color: $blue;
+                    padding-right: .5rem;
+                }
+            }
+
+            form .email {
+                background: none;
+                border: $border;
+                border-radius: 5rem;
+                color: $light-color;
+                font-size: 1.5rem;
+                text-transform: none;
+                margin-top: 1rem;
+                padding: 1.2rem 1.4rem;
+                width: 100%;
+            }
+
+        }
+    }
+}
+
+.credit {
+    background-color: $bg-color;
+    color: $light-color;
+    font-size: 2rem;
+    text-align: center;
+    padding: 3rem 2rem;
+
+    span {
+        color: $blue;
+    }
+}
+
+
+// media queries
+
+
+@media (max-width: 991px) {
+
+    html {
+        font-size: 55%;
+    }
+    
+    section {
+        padding: 3rem 2rem;
+    }
+
+// header
+    .header {
+        padding: 1.5rem 2rem;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+// header
+    #menu-btn {
+        display: inline-block;
+    }
+    
+
+    .header {
+       
+        .navbar {
+            background-color: $bg-color;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 99%;
+
+            &.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            a{
+                font-size: 2rem;
+                display: block;
+                margin: 2rem;
+            }
+        }
+
+    }
+
+
+// home
+    .home {
+        margin-top: 10rem;
+
+        .content {
+
+            span {
+                font-size: 8vw;
+            }
+
+            h3 {
+                font-size: 9vw;
+            }
+        }
+    }
+    
+}
+
+
+@media (max-width: 450px) {
+
+    html {
+        font-size: 50%;
+    }
+
+    .about .content h3 {
+        font-size: 3.5rem;
+    }
+
+    .banner .content {
+        font-size: 2.5rem;
+    }
+    
+}
